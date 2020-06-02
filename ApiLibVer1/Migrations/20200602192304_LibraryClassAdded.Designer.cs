@@ -3,14 +3,16 @@ using ApiLibVer1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiLibVer1.Migrations
 {
     [DbContext(typeof(AppLibVer1Context))]
-    partial class AppLibVer1ContextModelSnapshot : ModelSnapshot
+    [Migration("20200602192304_LibraryClassAdded")]
+    partial class LibraryClassAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

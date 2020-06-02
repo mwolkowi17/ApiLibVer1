@@ -15,5 +15,6 @@ namespace ApiLibVer1.Models
         public DbSet<User>Users { get; set; }
         public DbSet<Item>Items { get; set; }
         public DbSet<Checkout>Checkouts { get; set; }
+        public DbSet<Library>Librarys { get; set; }
     }
 }
