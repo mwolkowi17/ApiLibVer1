@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 
 namespace ApiLibVer1.Models
 {
-    public enum Status
+    public enum RecordStatus
     {
         Zakonczone      //wypisać wszystkie możliwe statusy (etapy całego procesu: rezerwacja, wypożyczenie, odbiór, zwrot, potwierdzenie odbioru nieuszkodzonego przedmiotu, zakończenie).
     }
-    public class Checkout
+    public class Record
     {
-        public int CheckoutID { get; set; }
+        public int RecordId { get; set; }
         public int ItemId { get; set; }
         public int UserId { get; set; }
-
-        public Status Status { get; set; }
+        public RecordStatus RecordStatus { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

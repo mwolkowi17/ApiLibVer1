@@ -12,7 +12,7 @@ namespace ApiLibVer1.Models
         Dostępny
     }
 
-    public enum Type
+    public enum ItemType
     {
         Book,
         AudioCD,
@@ -20,14 +20,10 @@ namespace ApiLibVer1.Models
     }
     public class Item
     {
-        public int ItemID { get; set; }
-        public Type Type { get; set; }
-        public ItemStatus Status { set; get; }
-
-        public int LibraryId { get; set; }      //LUB public int OwnerId { get; set; }
-
-        public string Title { get; set; }
-        public string Author { get; set; }      //wykonawca, reżyser, autor
+        public int ItemId { get; set; }
+        public ItemType ItemType { get; set; }
+        public ItemStatus ItemStatus { set; get; }
+        public int OwnerId { get; set; }
     }
 }
 

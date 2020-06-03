@@ -11,48 +11,48 @@ namespace ApiLibVer1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LibrariesController : ControllerBase
+    public class RecordsController : ControllerBase
     {
         private readonly AppLibVer1Context _context;
 
-        public LibrariesController(AppLibVer1Context context)
+        public RecordsController(AppLibVer1Context context)
         {
             _context = context;
         }
 
-        // GET: api/Libraries
+        // GET: api/Records
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Library>>> GetLibrarys()
+        public async Task<ActionResult<IEnumerable<Record>>> GetRecords()
         {
-            return await _context.Librarys.ToListAsync();
+            return await _context.Records.ToListAsync();
         }
 
-        // GET: api/Libraries/5
+        // GET: api/Records/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Library>> GetLibrary(int id)
+        public async Task<ActionResult<Record>> GetRecord(int id)
         {
-            var library = await _context.Librarys.FindAsync(id);
+            var record = await _context.Records.FindAsync(id);
 
-            if (library == null)
+            if (record == null)
             {
                 return NotFound();
             }
 
-            return library;
+            return record;
         }
 
-        // PUT: api/Libraries/5
+        // PUT: api/Records/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLibrary(int id, Library library)
+        public async Task<IActionResult> PutRecord(int id, Record record)
         {
-            if (id != library.LibraryID)
+            if (id != record.RecordId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(library).State = EntityState.Modified;
+            _context.Entry(record).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace ApiLibVer1.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LibraryExists(id))
+                if (!RecordExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace ApiLibVer1.Controllers
             return NoContent();
         }
 
-        // POST: api/Libraries
+        // POST: api/Records
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Library>> PostLibrary(Library library)
+        public async Task<ActionResult<Record>> PostRecord(Record record)
         {
-            _context.Librarys.Add(library);
+            _context.Records.Add(record);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLibrary", new { id = library.LibraryID }, library);
+            return CreatedAtAction("GetRecord", new { id = record.RecordId }, record);
         }
 
-        // DELETE: api/Libraries/5
+        // DELETE: api/Records/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Library>> DeleteLibrary(int id)
+        public async Task<ActionResult<Record>> DeleteRecord(int id)
         {
-            var library = await _context.Librarys.FindAsync(id);
-            if (library == null)
+            var record = await _context.Records.FindAsync(id);
+            if (record == null)
             {
                 return NotFound();
             }
 
-            _context.Librarys.Remove(library);
+            _context.Records.Remove(record);
             await _context.SaveChangesAsync();
 
-            return library;
+            return record;
         }
 
-        private bool LibraryExists(int id)
+        private bool RecordExists(int id)
         {
-            return _context.Librarys.Any(e => e.LibraryID == id);
+            return _context.Records.Any(e => e.RecordId == id);
         }
     }
 }

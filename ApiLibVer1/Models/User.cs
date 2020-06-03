@@ -10,12 +10,19 @@ namespace ApiLibVer1.Models
         LoggedIn,
         LoggedOff
     }
+
+    public enum UserRole
+    {
+        Admin,
+        Guest,
+        Registered
+    }
     public class User
     {
-        public int UserID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public int UserId { get; set; }
         public string Email { get; set; }
-        public UserStatus Status { get; set; }
+        public string Password { get; set; }
+        public UserStatus UserStatus { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }

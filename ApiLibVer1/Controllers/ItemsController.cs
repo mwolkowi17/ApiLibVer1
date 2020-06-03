@@ -47,7 +47,7 @@ namespace ApiLibVer1.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutItem(int id, Item item)
         {
-            if (id != item.ItemID)
+            if (id != item.ItemId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace ApiLibVer1.Controllers
             _context.Items.Add(item);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetItem", new { id = item.ItemID }, item);
+            return CreatedAtAction("GetItem", new { id = item.ItemId }, item);
         }
 
         // DELETE: api/Items/5
@@ -103,7 +103,7 @@ namespace ApiLibVer1.Controllers
 
         private bool ItemExists(int id)
         {
-            return _context.Items.Any(e => e.ItemID == id);
+            return _context.Items.Any(e => e.ItemId == id);
         }
     }
 }
