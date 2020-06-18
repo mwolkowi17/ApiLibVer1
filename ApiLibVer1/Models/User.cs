@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApiLibVer1.Models
+namespace ApiLib.Models
 {
     public enum UserStatus
     {
@@ -17,12 +16,17 @@ namespace ApiLibVer1.Models
         Guest,
         Registered
     }
+
     public class User
     {
+        [Key]
         public int UserId { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public UserStatus UserStatus { get; set; }
         public UserRole UserRole { get; set; }
+
+        [ForeignKey("Items")]
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

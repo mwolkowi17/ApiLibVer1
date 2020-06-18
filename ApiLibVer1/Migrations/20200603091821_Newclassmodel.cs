@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ApiLibVer1.Migrations
+namespace ApiLib.Migrations
 {
     public partial class Newclassmodel : Migration
     {

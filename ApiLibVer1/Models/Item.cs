@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApiLibVer1.Models
+namespace ApiLib.Models
 {
     public enum ItemStatus
     {
+        Dostępny,
         Zarezerwowany,
-        Wypożyczony,
-        Dostępny
+        Wypożyczony
     }
 
     public enum ItemType
@@ -18,12 +16,16 @@ namespace ApiLibVer1.Models
         AudioCD,
         DVD
     }
+
     public class Item
     {
+        [Key]
         public int ItemId { get; set; }
         public ItemType ItemType { get; set; }
         public ItemStatus ItemStatus { set; get; }
-        public int OwnerId { get; set; }
+
+        [ForeignKey("Owner")]
+        public int UserId { get; set; }
     }
 }
 

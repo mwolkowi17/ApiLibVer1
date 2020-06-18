@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ApiLibVer1.Models;
+using ApiLib.Models;
 
-namespace ApiLibVer1.Controllers
+namespace ApiLib.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly AppLibVer1Context _context;
+        private readonly AppLibContext _context;
 
-        public ItemsController(AppLibVer1Context context)
+        public ItemsController(AppLibContext context)
         {
             _context = context;
         }
